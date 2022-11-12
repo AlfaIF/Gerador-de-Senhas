@@ -12,7 +12,7 @@
 
 ### Dev´s
 [![react](https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png "react")](https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png "react")
-- **Ryan Víctor** :fa-gamepad:
-- **Gabriel Silva** :fa-laptop:
-- **José Alfredo** :fa-shield:
-- **Mº Gabriela** :fa-laptop:
+- **Ryan Víctor** 🕹️
+- **Gabriel Silva** 👨‍💻
+- **José Alfredo** 🛡️
+- **Mº Gabriela** 💻
