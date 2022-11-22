@@ -1,0 +1,1 @@
+export const COPIA_SUCESSO = 'Senha copiada com sucesso!!'
