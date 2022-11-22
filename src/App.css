@@ -1,6 +1,6 @@
 .App {
     min-height: 100vh;
-    background: #3b3b98;
+    background: #32d212;
   }
   
   .container {
@@ -9,20 +9,20 @@
     padding-top: 200px;
   }
   
-  .generator {
-    background: #23235b;
+  .gerador {
+    background: #235b2c;
     border-radius: 3px;
     box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
     padding: 20px;
   }
   
-  .generator__header {
+  .cabeçalho {
     text-align: center;
     color: #fff;
     margin-bottom: 20px;
   }
   
-  .generator__password {
+  .gerador-de-senhas {
     position: relative;
     background: rgba(0, 0, 0, 0.4);
     padding: 13px 10px;
@@ -31,7 +31,7 @@
     margin-bottom: 15px;
   }
   
-  .copy__btn {
+  .btn_copia {
     position: absolute;
     background: #3b3b98;
     color: #fff;
@@ -43,8 +43,9 @@
     right: 3px;
   }
   
-  .generator__btn {
-    background: #3b3b98;
+  .btn_gerador {
+    background: #3b9841;
+    font-weight: 600;
     border: none;
     display: block;
     width: 100%;
@@ -57,6 +58,8 @@
   .form-group {
     display: flex;
     justify-content: space-between;
-    color: #fff;
+    color: rgb(255, 255, 255);
     margin-bottom: 15px;
+    font-weight: bolder;
+    font-size: large;
   }
