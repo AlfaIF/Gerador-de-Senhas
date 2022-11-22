@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import {numeros, letras_maiusculas, letras_minusculas, caracteres_especiais} from './Caracteres'
 
 function App() {
   const [senha, criarSenha] = useState('')
@@ -9,6 +10,41 @@ function App() {
   const [incluirNumeros, criarComNumeros] = useState(false)
   const [incluirSimbolos, criarComSimbolos] = useState(false)
 
+  const gerarSenha = (e) => {
+    let listaCaracteres = ''
+
+    if(incluirLowercase){
+      listaCaracteres = listaCaracteres + letras_minusculas
+    }
+
+    if(incluirUppercase){
+      listaCaracteres = listaCaracteres + letras_maiusculas
+    }
+
+    if(incluirNumeros){
+      listaCaracteres = listaCaracteres + numeros
+    }
+
+    if(incluirSimbolos) {
+      listaCaracteres = listaCaracteres + caracteres_especiais
+    }
+
+    criarSenha(criarSenhaPersonalizada(listaCaracteres))
+
+  }
+
+  const criarSenhaPersonalizada = (listaCaracteres) => {
+      let senhaPersonalizada = ''
+      const tamanhoListaCaracteres = listaCaracteres.length
+
+
+      for(let i=0; i< tamanhoSenha; i++){
+        const indexCaracter = Math.round(Math.random() * tamanhoListaCaracteres)
+        senhaPersonalizada = senhaPersonalizada + listaCaracteres.charAt(indexCaracter)
+      }
+      return senhaPersonalizada
+  }
+
   return <div className="App">
     <div className="container">
       <div className="gerador">
@@ -17,7 +53,7 @@ function App() {
         </h2>
 
         <div className="gerador-de-senhas">
-          <h3>senha</h3>
+          <h3>{senha}</h3>
           <button className="btn_copia">
             <i className='far fa-clipboard'></i>
           </button>
@@ -74,7 +110,7 @@ function App() {
             name="símbolos"/>
         </div>
 
-        <button className="btn_gerador">Gerar senha</button>
+        <button onClick={gerarSenha} className="btn_gerador">Gerar senha</button>
       </div>
 
       <div />
