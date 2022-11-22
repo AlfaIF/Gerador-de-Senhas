@@ -1,19 +1,19 @@
 .App {
     min-height: 100vh;
-    background: #32d212;
+    background: #4d8043;
   }
   
   .container {
-    width: 350px;
+    width: 400px;
     margin: 0 auto;
     padding-top: 200px;
   }
   
   .gerador {
-    background: #235b2c;
+    background: #2a8339;
     border-radius: 3px;
     box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
-    padding: 20px;
+    padding: 10px;
   }
   
   .cabeçalho {
@@ -25,9 +25,9 @@
   .gerador-de-senhas {
     position: relative;
     background: rgba(0, 0, 0, 0.4);
-    padding: 13px 10px;
+    padding: 7% 2% ;
     color: #fff;
-    height: 46px;
+    height: 100%;
     margin-bottom: 15px;
   }
   
@@ -39,13 +39,14 @@
     height: 40px;
     padding: 10px;
     cursor: pointer;
-    top: 3px;
-    right: 3px;
+    top: 20%;
+    right: 10px;
   }
   
   .btn_gerador {
-    background: #3b9841;
+    background: #36a12cb2;
     font-weight: 600;
+    border-radius: 5px;
     border: none;
     display: block;
     width: 100%;

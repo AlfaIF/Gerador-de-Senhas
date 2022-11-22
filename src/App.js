@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {COPIA_SUCESSO} from './mensagem'
 function App() {
   const [senha, criarSenha] = useState('')
-  const [tamanhoSenha, criarTamanhoSenha] = useState(20)
+  const [tamanhoSenha, criarTamanhoSenha] = useState(8)
   const [incluirUppercase, criarComUppercase] = useState(false)
   const [incluirLowercase, criarComLowercase] = useState(false)
   const [incluirNumeros, criarComNumeros] = useState(false)
@@ -43,7 +43,7 @@ function App() {
       const tamanhoListaCaracteres = listaCaracteres.length
 
 
-      for(let i=0; i< tamanhoSenha; i++){
+      for(let i=0; i < tamanhoSenha; i++){
         const indexCaracter = Math.round(Math.random() * tamanhoListaCaracteres)
         senhaPersonalizada = senhaPersonalizada + listaCaracteres.charAt(indexCaracter)
       }
@@ -113,12 +113,20 @@ function App() {
         <div className="form-group">
           <label htmlFor="tamanho-senha">Tamanho da senha</label>
           <input 
-            defaultValue={criarTamanhoSenha}
-            onChange={(e) => criarTamanhoSenha(e.target.value)}
+            defaultValue={tamanhoSenha}
+            onChange={(e) => { 
+              if (e.target.value >32 || e.target.value < 8 ){
+                criarTamanhoSenha(8) 
+              }else{
+                criarTamanhoSenha(e.target.value) 
+              }
+
+            }}
             type="number"
             id="tamanho-senha"
             name="tamanho-senha"
-            max={32} min={10} />
+            value={tamanhoSenha}
+            max={32} min={8}/>
         </div>
 
         <div className="form-group">
