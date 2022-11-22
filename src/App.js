@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 import {numeros, letras_maiusculas, letras_minusculas, caracteres_especiais} from './Caracteres'
-
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import {COPIA_SUCESSO} from './mensagem'
 function App() {
   const [senha, criarSenha] = useState('')
   const [tamanhoSenha, criarTamanhoSenha] = useState(20)
@@ -11,6 +13,9 @@ function App() {
   const [incluirSimbolos, criarComSimbolos] = useState(false)
 
   const gerarSenha = (e) => {
+    if (!incluirLowercase && !incluirUppercase && !incluirNumeros && !incluirSimbolos ) {
+      notificacao('Você precisa incluir alguma das opções',true)
+    }
     let listaCaracteres = ''
 
     if(incluirLowercase){
@@ -45,6 +50,52 @@ function App() {
       return senhaPersonalizada
   }
 
+  const copiar = () => {
+    const novaTextarea = document.createElement('textarea')
+    novaTextarea.innerText = senha
+    document.body.appendChild(novaTextarea)
+    novaTextarea.select()
+    document.execCommand('copy')
+    return novaTextarea.remove
+  }
+
+  const notificacao = (mensagem, erro = false) => {
+    if (erro) {
+      toast.error(mensagem, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      
+    }else{
+    toast.success(mensagem, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+    }
+  }
+
+  const HadlercopiarSenha = (e) => {
+    if (senha=== '') {
+      notificacao('Não é possível copiar',true)
+      
+    }else{
+      copiar()
+      notificacao(COPIA_SUCESSO)
+    }
+  }
+
   return <div className="App">
     <div className="container">
       <div className="gerador">
@@ -54,7 +105,7 @@ function App() {
 
         <div className="gerador-de-senhas">
           <h3>{senha}</h3>
-          <button className="btn_copia">
+          <button onClick={HadlercopiarSenha} className="btn_copia">
             <i className='far fa-clipboard'></i>
           </button>
         </div>
@@ -109,10 +160,20 @@ function App() {
             id="símbolos" 
             name="símbolos"/>
         </div>
-
         <button onClick={gerarSenha} className="btn_gerador">Gerar senha</button>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
-
       <div />
     </div>
   </div>
