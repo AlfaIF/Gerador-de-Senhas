@@ -56,7 +56,7 @@ function App() {
     document.body.appendChild(novaTextarea)
     novaTextarea.select()
     document.execCommand('copy')
-    return novaTextarea.remove
+    novaTextarea.remove()
   }
 
   const notificacao = (mensagem, erro = false) => {
